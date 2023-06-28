@@ -6,11 +6,13 @@ export const ExpensesList = ({
   id,
   i,
   currency,
+  idDetail
 }) => {
+  console.log(id)
   return (
     <Link
       to={{
-        pathname: `/tours/${id}/expensdetail`,
+        pathname: `/tours/${id}/${idDetail}`,
       }}
       state={{
         id,

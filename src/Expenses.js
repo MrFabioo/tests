@@ -31,6 +31,7 @@ export const Expenses = () => {
     });
     return () => unsubscribe();
   }, [id]);
+  console.log(expensesDetail, 'asd')
 
   const changeCurrencyDetail = (currency) => {
     setCurrencyDetail(currency);
@@ -186,6 +187,7 @@ export const Expenses = () => {
             currency={currency}
             id={id}
             usersAmount={usersAmount}
+            idDetail={expens.id}
           />
         ))}
       </div>

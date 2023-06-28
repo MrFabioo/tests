@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { db } from './firebase';
 import { query, collection, onSnapshot } from 'firebase/firestore';
 
-export const ExpensDetail = ({ id_detail }) => {
+export const ExpensDetail = () => {
   const location = useLocation();
   const { id } = location.state;
   const [expenses, setExpenses] = useState([]);
 
+  const {idDetail} = useParams();
+
   useEffect(() => {
-    const q = query(collection(db, `expenses/${id}/detail/${id_detail}`));
+    const q = query(collection(db, `expenses/${id}/detail/`));
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
       let expensesArr = [];
       QuerySnapshot.forEach((doc) => {
@@ -20,11 +22,17 @@ export const ExpensDetail = ({ id_detail }) => {
     return () => unsubscribe();
   }, []);
 
-  console.log(expenses);
+  const {id: idTest, cost, currency, payer} = expenses.filter(expense => expense.id === idDetail)
+
+  console.log(idTest)
+
+  console.log(expenses)
+
+
   return (
     <div>
       {id}
-      {id_detail}
+      {}
     </div>
   );
 };

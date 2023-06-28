@@ -29,7 +29,7 @@ function App() {
             <Route path='/bag' element={<Bag />} />
             <Route path='/tours' element={<Tours />} />
             <Route path='/tours/:id' element={<Expenses />} />
-            <Route path='/tours/:id/:id' element={<ExpensDetail />} />
+            <Route path='/tours/:id/:idDetail' element={<ExpensDetail />} />
             {/*  */}
             {/* <Route path='/redux' element={<Redux />} />
             <Route path='/redux/home' element={<Home />} />
